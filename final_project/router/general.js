@@ -2,13 +2,12 @@ const express = require('express');
 const axios = require('axios');
 const public_users = express.Router();
 
-// Exemple : base URL locale pour ton API (si tu fais des requêtes internes)
 const BASE_URL = "http://localhost:5000";
 
 // Task 10: Get all books
 public_users.get('/', async (req, res) => {
   try {
-    const response = await axios.get(`${BASE_URL}/books`); // tu peux adapter l'URL si nécessaire
+    const response = await axios.get(`${BASE_URL}/books`); 
     return res.status(200).json(response.data);
   } catch (error) {
     return res.status(500).json({ message: "Error fetching books", error: error.message });
